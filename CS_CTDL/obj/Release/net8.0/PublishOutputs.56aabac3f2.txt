@@ -1,0 +1,5 @@
+C:\Users\vhn01\Desktop\CS_CTDL\bin\Release\net8.0\publish\CS_CTDL.exe
+C:\Users\vhn01\Desktop\CS_CTDL\bin\Release\net8.0\publish\CS_CTDL.dll
+C:\Users\vhn01\Desktop\CS_CTDL\bin\Release\net8.0\publish\CS_CTDL.deps.json
+C:\Users\vhn01\Desktop\CS_CTDL\bin\Release\net8.0\publish\CS_CTDL.runtimeconfig.json
+C:\Users\vhn01\Desktop\CS_CTDL\bin\Release\net8.0\publish\CS_CTDL.pdb

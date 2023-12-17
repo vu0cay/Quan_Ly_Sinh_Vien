@@ -1,5 +1,3 @@
-using System;
-
 namespace EnumXepLoai
 {
     enum XepLoai{

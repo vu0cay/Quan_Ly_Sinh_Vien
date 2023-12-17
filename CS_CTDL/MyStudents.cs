@@ -9,6 +9,7 @@ namespace MyStudents
 {
     class SinhVien 
     {
+        // du lieu
         // thuoc tinh
         public double GPA
         {
@@ -22,18 +23,14 @@ namespace MyStudents
         }
         
         // constructor
+        public SinhVien(){this.GPA = 0.0; this.Name ="rong"; this.MSSV="rong";}
         public SinhVien(string MSSV, string Name, double GPA)
         {
             this.Name = Name;
             this.MSSV = MSSV;
             this.GPA = GPA;
         }
-
-
-
         // Method
-
-
         // Save and Restore Database by using FileStream
         public void Save(Stream stream)
         {
@@ -88,7 +85,7 @@ namespace MyStudents
             return numstream;
         }
 
-        // xet thuong hoc ki
+        // xet loai hoc ki
         public string getLoai(dynamic e)
         {
             if(e == XepLoai.XuatSac) return "Xuat Sac";
@@ -108,7 +105,7 @@ namespace MyStudents
             return getLoai(e);
         }
 
-        
+       // thong tin Sinh Vien 
         public void Info() {
             if(DKXepLoai() == "Kem") 
             {

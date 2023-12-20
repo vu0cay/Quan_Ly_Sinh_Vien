@@ -19,6 +19,7 @@ namespace MyCompare
 
         /**************************************************************************/
         // Phuong thuc so sanh 2 SinhVien dua tren 2 gia tri kieu double
+        
         public bool Greater(double a, double b) => a > b;
         
         public bool Lower(double a, double b) => a < b;
@@ -69,61 +70,68 @@ namespace MyCompare
         public bool checkGreater(SinhVien a, SinhVien b)
         {
             bool checkgreater = false;
-            if(key == (int)MyEnum.Key.GPA) {
-                // delegate tra ve kieu bool ss dua tren 2 gia tri double
-                Func<double,double,bool> func = Greater; 
-                checkgreater = func.Invoke(a.GPA,b.GPA);
-            }
-            else if(key == (int)MyEnum.Key.Name){
-                // delegate tra ve kieu bool ss dua tren 2 gia tri string
-                Func<string,string,bool> func = Greater;
-                checkgreater = func.Invoke(a.Name,b.Name);
-            }
-            else if(key == (int)MyEnum.Key.MSSV){
-                // tuong tu Name
-                Func<string,string,bool> func = Greater;
-                checkgreater = func.Invoke(a.MSSV,b.MSSV);
-            }
+            var kq = (SinhVien x,SinhVien y) => {
+                if(key == (int)MyEnum.Key.GPA)
+                {
+                    return Greater(x.GPA,y.GPA);
+                }
+                else if(key == (int)MyEnum.Key.Name)
+                {
+                    return Greater(x.Name,y.Name);
+                }
+                else if(key == (int)MyEnum.Key.MSSV)
+                {
+                    return Greater(x.MSSV,y.MSSV);
+                }
+                else return false;
+                    
+            };
+            checkgreater = kq.Invoke(a,b); 
             return checkgreater;
         }
         public bool checkLower(SinhVien a, SinhVien b)
         {
             bool checklower = false;
-            if(key == (int)MyEnum.Key.GPA) {
-                // delegate tra ve kieu bool ss dua tren 2 gia tri double
-                Func<double,double,bool> func = Lower; 
-                checklower = func.Invoke(a.GPA,b.GPA);
-            }
-            else if(key == (int)MyEnum.Key.Name){
-                // delegate tra ve kieu bool ss dua tren 2 gia tri string
-                Func<string,string,bool> func = Lower;
-                checklower = func.Invoke(a.Name,b.Name);
-            }
-            else if(key == (int)MyEnum.Key.MSSV){
-                // tuong tu Name
-                Func<string,string,bool> func = Lower;
-                checklower = func.Invoke(a.MSSV,b.MSSV);
-            }
+            var kq = (SinhVien x,SinhVien y) => {
+                if(key == (int)MyEnum.Key.GPA)
+                {
+                    return Lower(x.GPA,y.GPA);
+                }
+                else if(key == (int)MyEnum.Key.Name)
+                {
+                    return Lower(x.Name,y.Name);
+                }
+                else if(key == (int)MyEnum.Key.MSSV)
+                {
+                    return Lower(x.MSSV,y.MSSV);
+                }
+                else return false;
+                    
+            };
+            checklower = kq.Invoke(a,b); 
             return checklower;
         }
         public bool checkEquals(SinhVien a, SinhVien b)
         {
             bool checkequals = false;
-            if(key == (int)MyEnum.Key.GPA) {
-                // delegate tra ve kieu bool ss dua tren 2 gia tri double
-                Func<double,double,bool> func = Equal; 
-                checkequals = func.Invoke(a.GPA,b.GPA);
-            }
-            else if(key == (int)MyEnum.Key.Name){
-                // delegate tra ve kieu bool ss dua tren 2 gia tri string
-                Func<string,string,bool> func = Equal;
-                checkequals = func.Invoke(a.Name,b.Name);
-            }
-            else if(key == (int)MyEnum.Key.MSSV){
-                // tuong tu Name
-                Func<string,string,bool> func = Equal;
-                checkequals = func.Invoke(a.MSSV,b.MSSV);
-            }
+            
+            var kq = (SinhVien x,SinhVien y) => {
+                if(key == (int)MyEnum.Key.GPA)
+                {
+                    return Equal(x.GPA,y.GPA);
+                }
+                else if(key == (int)MyEnum.Key.Name)
+                {
+                    return Equal(x.Name,y.Name);
+                }
+                else if(key == (int)MyEnum.Key.MSSV)
+                {
+                    return Equal(x.MSSV,y.MSSV);
+                }
+                else return false;
+                
+            }; 
+            checkequals = kq.Invoke(a,b); 
             return checkequals;
         }
         

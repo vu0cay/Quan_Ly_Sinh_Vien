@@ -5,6 +5,10 @@ using MyStudents;
 using System.Text;
 using System.Security.Cryptography;
 using MyCompare;
+
+
+using ElementType = MyStudents.SinhVien; 
+using ListType = System.Collections.Generic.List<MyStudents.SinhVien>;
 namespace MySortQuick
 {
     class SortQuick : CompareTwoValue
@@ -16,7 +20,7 @@ namespace MySortQuick
             this.key = keysort;
             this.order = order;
         }
-        public int Partition(List<SinhVien> ds,int l,int r,SinhVien pivot){
+        public int Partition(ListType ds,int l,int r,ElementType pivot){
             int i = l;
             int j = r;       
             
@@ -30,20 +34,16 @@ namespace MySortQuick
                     while(checkGreater(ds[i],pivot) == true)  i++;
                     while(checkEquals(ds[j],pivot)==true || checkLower(ds[j],pivot)==true) j--;
                 }
-                
-                
                 if(i<j) {
                     var tmp = ds[i];
                     ds[i] = ds[j];
                     ds[j] = tmp;
-                    i++;
-                    j--;
                 }
             }
             return i;
         }
-        public int findpivot(List<SinhVien> ds,int l,int r){
-            SinhVien firstkey = ds[l];
+        public int findpivot(ListType ds,int l,int r){
+            ElementType firstkey = ds[l];
             int i = l+1;
             
             while(i<=r && checkEquals(ds[i],firstkey)) i++;
@@ -59,9 +59,9 @@ namespace MySortQuick
                 }
             }
         }
-        public void Quicksort(List<SinhVien> ds,int l,int r){
+        public void Quicksort(ListType ds,int l,int r){
             int k,pivotindex;
-            SinhVien pivot;
+            ElementType pivot;
             pivotindex = findpivot(ds,l,r);
             if(pivotindex!=-1){
                 pivot = ds[pivotindex];

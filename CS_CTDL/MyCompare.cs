@@ -4,6 +4,8 @@ using System.Runtime.InteropServices;
 using MyStudents;
 using System.Text;
 using System.Security.Cryptography;
+using System.ComponentModel.DataAnnotations;
+
 namespace MyCompare
 {
     class CompareTwoValue
@@ -30,31 +32,67 @@ namespace MyCompare
         public bool Greater(string str_1,string str_2) 
         {
             int i = 0;
-            StringBuilder a = new StringBuilder(); 
-            StringBuilder b = new StringBuilder();
-            a.Append(str_1.ToLower());
-            b.Append(str_2.ToLower());
-            while(i < a.Length-1 && i < b.Length-1 && (int)a[i] == (int)b[i]) i++;
-
+            string a;
+            string b;
             
+            a = str_1.ToLower();
+            b = str_2.ToLower();
+            string substring,roofstring;
+            if(a.Length > b.Length)
+            {
+                roofstring = b;
+                substring = a.Substring(0,b.Length);
+            }
+            else {
+                roofstring = a;
+                substring = b.Substring(0,a.Length);
+            }
+            while(i < roofstring.Length && (int)a[i] == (int)b[i]) i++;
+
+            if(i >= roofstring.Length) return false;
+            else
             if((int)a[i] > (int)b[i]) 
             {
                 return true; // a > b
             }
             else
                   return false; // a <= b
+            // int i = 0;
+            // StringBuilder a = new StringBuilder(); 
+            // StringBuilder b = new StringBuilder();
+            // a.Append(str_1.ToLower());
+            // b.Append(str_2.ToLower());
+            // while(i < a.Length-1 && i < b.Length-1 && (int)a[i] == (int)b[i]) i++;
+            // if((int)a[i] > (int)b[i]) 
+            // {
+            //     return true; // a > b
+            // }
+            // else
+            //       return false; // a <= b
             
         }
         public bool Lower(string str_1,string str_2) 
         {
             int i = 0;
-            StringBuilder a = new StringBuilder(); 
-            StringBuilder b = new StringBuilder();
-            a.Append(str_1.ToLower());
-            b.Append(str_2.ToLower());
-            while(i < a.Length-1 && i < b.Length-1 && (int)a[i] == (int)b[i]) i++;
-
+            string a;
+            string b;
             
+            a = str_1.ToLower();
+            b = str_2.ToLower();
+            string substring,roofstring;
+            if(a.Length > b.Length)
+            {
+                roofstring = b;
+                substring = a.Substring(0,b.Length);
+            }
+            else {
+                roofstring = a;
+                substring = b.Substring(0,a.Length);
+            }
+            while(i < roofstring.Length && (int)a[i] == (int)b[i]) i++;
+
+            if(i >= roofstring.Length) return false;
+            else
             if((int)a[i] < (int)b[i]) 
             {
                 return true; // a > b
@@ -63,7 +101,28 @@ namespace MyCompare
                   return false; // a <= b
             
         }
-        public bool Equal(string str_1, string str_2) => str_1.Equals(str_2);
+        public bool Equal(string str_1, string str_2){
+            int i = 0;
+            string a;
+            string b;
+            
+            a = str_1.ToLower();
+            b = str_2.ToLower();
+            string substring,roofstring;
+            if(a.Length > b.Length)
+            {
+                roofstring = b;
+                substring = a.Substring(0,b.Length);
+            }
+            else {
+                roofstring = a;
+                substring = b.Substring(0,a.Length);
+            }
+            while(i < roofstring.Length && (int)a[i] == (int)b[i]) i++;
+
+            if(i >= roofstring.Length) return true;
+            else return false;
+        }
         
         
         // dua tren key ma so sanh 2 gia tri la double hay la string dung delegate Func
